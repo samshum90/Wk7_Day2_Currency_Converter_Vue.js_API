@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <script src="./js/bundle.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="app">
+
+        <label for="currency_select">Select a Country:</label>
+        <select id="currency_select" v-model="selectedCurrency">
+          <option v-for="(rates, currency) in currencies" :value="rates">{{currency}}</option><br>
+        </select>
+        <div id="amount">
+            <p>Amount to convert: {{selectedCurrency}}
+            <input type="number" v-model.number="amount"/></p>
+          </div>
+
+          <div v-if="selectedCurrency"></div>
+            <p>Converted to Euros: {{toEuros}}</p>
+          </div>
+
+          <div v-if="!selectedCurrency"></div>
+            <p>Converted from Euros: {{fromEuros}}</p>
+          </div>
+
+          <!-- <ul>
+            <li v-for="(rates, currency) in currencies">{{currency}}: {{rates}}</li>
+          </ul>
+          <br> -->
+
+    </div>
+</body>
+</html>
